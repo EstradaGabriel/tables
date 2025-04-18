@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML Tables and Forms Example - Red and White</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        /* Shared styles for both tables and forms */
+        
+        .component {
+            border: 2px solid #cc0000;
+            border-radius: 5px;
+            margin-bottom: 30px;
+            background-color: white;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        /* Table styles */
+        
+        .invoice-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        
+        .invoice-table th,
+        .invoice-table td {
+            padding: 8px;
+            text-align: left;
+            border: 1px solid #ffcccc;
+        }
+        
+        .header-row {
+            background-color: #cc0000;
+            color: white;
+            font-weight: bold;
+            text-align: center;
+            padding: 12px;
+            font-size: 1.2em;
+        }
+        
+        .invoice-number {
+            background-color: #cc0000;
+            color: white;
+            padding: 8px;
+            font-weight: bold;
+        }
+        
+        .invoice-date {
+            background-color: #cc0000;
+            color: white;
+            text-align: right;
+            padding: 8px;
+            font-weight: bold;
+        }
+        
+        .address-header {
+            background-color: #ffcccc;
+        }
+        
+        .column-header {
+            background-color: #cc0000;
+            color: white;
+        }
+        
+        .subtotal-row {
+            font-weight: bold;
+        }
+        
+        .tax-row {
+            background-color: #fff5f5;
+        }
+        
+        .grand-total {
+            background-color: #cc0000;
+            color: white;
+            font-weight: bold;
+        }
+        /* Form styles */
+        
+        .form-container {
+            width: 100%;
+        }
+        
+        .form-header {
+            background-color: #cc0000;
+            padding: 12px;
+            display: flex;
+            justify-content: space-between;
+            font-weight: bold;
+            color: white;
+        }
+        
+        .form-group {
+            display: flex;
+            border-bottom: 1px solid #ffcccc;
+        }
+        
+        .form-label {
+            width: 30%;
+            padding: 12px;
+            background-color: #ffcccc;
+            color: #800000;
+            font-weight: bold;
+        }
+        
+        .form-field {
+            width: 70%;
+            padding: 12px;
+        }
+        
+        input[type="text"],
+        select,
+        textarea {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ffcccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        
+        textarea {
+            height: 100px;
+            resize: vertical;
+        }
+        
+        .radio-group,
+        .checkbox-group {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+        
+        .radio-option,
+        .checkbox-option {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        
+        .submit-button {
+            width: 100%;
+            padding: 10px;
+            background-color: #cc0000;
+            border: none;
+            color: white;
+            font-weight: bold;
+            font-size: 16px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+        
+        .submit-button:hover {
+            background-color: #990000;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <!-- Invoice Table -->
+        <div class="component">
+            <table class="invoice-table">
+                <tr>
+                    <td colspan="4" class="header-row">Invoice Tabular data</td>
+                </tr>
+                <tr>
+                    <td colspan="2" class="invoice-number">Invoice #123456789</td>
+                    <td colspan="2" class="invoice-date">14 January 2025</td>
+                </tr>
+                <tr>
+                    <td colspan="2" class="address-header">Pay to:</td>
+                    <td colspan="2" class="address-header">Customer:</td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        Acme Billing Co.<br> 123 Main St.<br> Cityville, NA 12345
+                    </td>
+                    <td colspan="2">
+                        John Smith<br> 321 Willow Way<br> Southeast Northwestershire, MA 54321
+                    </td>
+                </tr>
+                <tr>
+                    <td class="column-header">Name / Description</td>
+                    <td class="column-header">Qty.</td>
+                    <td class="column-header">@</td>
+                    <td class="column-header">Cost</td>
+                </tr>
+                <tr>
+                    <td>Paperclips</td>
+                    <td>1000</td>
+                    <td>0.01</td>
+                    <td>10.00</td>
+                </tr>
+                <tr>
+                    <td>Staples (box)</td>
+                    <td>100</td>
+                    <td>1.00</td>
+                    <td>100.00</td>
+                </tr>
+                <tr>
+                    <td>Bond Paper (box)</td>
+                    <td>100</td>
+                    <td>1.00</td>
+                    <td>110.00</td>
+                </tr>
+                <tr class="subtotal-row">
+                    <td colspan="3">Subtotal</td>
+                    <td>110.00</td>
+                </tr>
+                <tr class="tax-row">
+                    <td>Tax</td>
+                    <td></td>
+                    <td>8%</td>
+                    <td>8.80</td>
+                </tr>
+                <tr class="grand-total">
+                    <td colspan="3">Grand Total</td>
+                    <td>$ 118.80</td>
+                </tr>
+            </table>
+        </div>
+
+        <!-- Form -->
+        <div class="component">
+            <div class="form-container">
+                <div class="form-header">
+                    <span>Name</span>
+                    <span>Value</span>
+                </div>
+                <form>
+                    <div class="form-group">
+                        <div class="form-label">Name:</div>
+                        <div class="form-field">
+                            <input type="text" placeholder="Type your name here">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="form-label">Sex:</div>
+                        <div class="form-field">
+                            <div class="radio-group">
+                                <div class="radio-option">
+                                    <input type="radio" id="male" name="sex" value="male" checked>
+                                    <label for="male">Male</label>
+                                </div>
+                                <div class="radio-option">
+                                    <input type="radio" id="female" name="sex" value="female">
+                                    <label for="female">Female</label>
+                                </div>
+                                <div class="radio-option">
+                                    <input type="radio" id="other" name="sex" value="other">
+                                    <label for="other">Other</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="form-label">Eye Color</div>
+                        <div class="form-field">
+                            <select>
+                                <option value="black" selected>black</option>
+                                <option value="blue">blue</option>
+                                <option value="brown">brown</option>
+                                <option value="green">green</option>
+                                <option value="hazel">hazel</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="form-label">Check all the Applies</div>
+                        <div class="form-field">
+                            <div class="checkbox-group">
+                                <div class="checkbox-option">
+                                    <input type="checkbox" id="over6ft" name="attributes" value="tall">
+                                    <label for="over6ft">Over 6ft. Tall</label>
+                                </div>
+                                <div class="checkbox-option">
+                                    <input type="checkbox" id="over200" name="attributes" value="over200">
+                                    <label for="over200">Over 200 pounds</label>
+                                </div>
+                                <div class="checkbox-option">
+                                    <input type="checkbox" id="under200" name="attributes" value="under200">
+                                    <label for="under200">Less than 200 pounds</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="form-label">Describe your athletic ability</div>
+                        <div class="form-field">
+                            <textarea></textarea>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="submit-button">Enter my Information</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
